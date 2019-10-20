@@ -2,36 +2,30 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="80b8c47d-74d6-417c-bc67-440bc8a70358" name="Default" comment="">
-      <change beforePath="" afterPath="$PROJECT_DIR$/.expo-shared/assets.json" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/.gitignore" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/AwesomeMaze.iml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/codeStyles/codeStyleConfig.xml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/dictionaries/yingdan.xml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/modules.xml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/vcs.xml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/.watchmanconfig" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/App.js" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/AppDemo.js" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/PositionActions.js" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/PositionReducer.js" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/app.json" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/assets/down-arrow.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/assets/icon.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/assets/left-arrow.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/assets/right-arrow.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/assets/splash.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/assets/up-arrow.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/babel.config.js" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/mazeSettings.js" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/package-lock.json" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/package.json" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/containers/Cell.js" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/containers/Grid.js" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/containers/VisionCone.js" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/containers/WASDKeys.js" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/yarn-error.log" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/assets/BW_Hint_Block.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/assets/Brick_Wall.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/assets/CatCharacter.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/assets/Fire_Block.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/assets/Fire_Trap.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/assets/Fire_Wall.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/assets/Grass_Block.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/assets/Hint_Block.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/assets/Milk_Block.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/assets/Question_Mark.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/assets/Spike_Block.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/assets/Spike_Trap.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/assets/Vegetation_Block.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/assets/ghost.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/assets/grasspatch.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/containers/TrapsTreasure.js" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change beforePath="$PROJECT_DIR$/App.js" afterPath="$PROJECT_DIR$/App.js" />
+      <change beforePath="$PROJECT_DIR$/PositionActions.js" afterPath="$PROJECT_DIR$/MazeActions.js" />
+      <change beforePath="$PROJECT_DIR$/PositionReducer.js" afterPath="$PROJECT_DIR$/MazeReducer.js" />
+      <change beforePath="$PROJECT_DIR$/mazeSettings.js" afterPath="$PROJECT_DIR$/mazeSettings.js" />
+      <change beforePath="$PROJECT_DIR$/src/containers/Grid.js" afterPath="$PROJECT_DIR$/src/containers/Grid.js" />
+      <change beforePath="$PROJECT_DIR$/src/containers/VisionCone.js" afterPath="$PROJECT_DIR$/src/containers/VisionCone.js" />
+      <change beforePath="$PROJECT_DIR$/src/containers/WASDKeys.js" afterPath="$PROJECT_DIR$/src/containers/WASDKeys.js" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -45,14 +39,48 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="App.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="App.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/App.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="295">
-              <caret line="46" column="5" lean-forward="true" selection-start-line="46" selection-start-column="5" selection-end-line="46" selection-end-column="5" />
+            <state relative-caret-position="181">
+              <caret line="38" column="23" lean-forward="false" selection-start-line="38" selection-start-column="23" selection-end-line="38" selection-end-column="23" />
               <folding>
                 <element signature="e#0#41#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="TrapsTreasure.js" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/containers/TrapsTreasure.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="114">
+              <caret line="33" column="53" lean-forward="false" selection-start-line="33" selection-start-column="53" selection-end-line="33" selection-end-column="53" />
+              <folding>
+                <element signature="e#0#41#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Grid.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/containers/Grid.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="248">
+              <caret line="90" column="35" lean-forward="true" selection-start-line="90" selection-start-column="35" selection-end-line="90" selection-end-column="35" />
+              <folding>
+                <element signature="e#0#41#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name=".gitignore" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/.gitignore">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -60,8 +88,8 @@
       <file leaf-file-name="VisionCone.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/containers/VisionCone.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="190">
-              <caret line="36" column="7" lean-forward="true" selection-start-line="36" selection-start-column="7" selection-end-line="36" selection-end-column="7" />
+            <state relative-caret-position="224">
+              <caret line="46" column="29" lean-forward="true" selection-start-line="46" selection-start-column="29" selection-end-line="46" selection-end-column="29" />
               <folding>
                 <element signature="e#0#41#0" expanded="true" />
               </folding>
@@ -69,11 +97,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="PositionActions.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/PositionActions.js">
+      <file leaf-file-name="MazeActions.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/MazeActions.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="12" lean-forward="false" selection-start-line="0" selection-start-column="12" selection-end-line="0" selection-end-column="12" />
+            <state relative-caret-position="84">
+              <caret line="4" column="2" lean-forward="true" selection-start-line="4" selection-start-column="2" selection-end-line="4" selection-end-column="2" />
               <folding />
             </state>
           </provider>
@@ -82,8 +110,8 @@
       <file leaf-file-name="WASDKeys.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/containers/WASDKeys.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="119">
-              <caret line="136" column="18" lean-forward="false" selection-start-line="136" selection-start-column="18" selection-end-line="136" selection-end-column="18" />
+            <state relative-caret-position="114">
+              <caret line="147" column="45" lean-forward="false" selection-start-line="147" selection-start-column="36" selection-end-line="147" selection-end-column="45" />
               <folding>
                 <element signature="e#0#41#0" expanded="true" />
               </folding>
@@ -91,11 +119,21 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="PositionReducer.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/PositionReducer.js">
+      <file leaf-file-name="babel.config.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/babel.config.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="76">
-              <caret line="28" column="10" lean-forward="false" selection-start-line="28" selection-start-column="10" selection-end-line="28" selection-end-column="10" />
+            <state relative-caret-position="0">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="MazeReducer.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/MazeReducer.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="216">
+              <caret line="17" column="35" lean-forward="false" selection-start-line="17" selection-start-column="35" selection-end-line="17" selection-end-column="35" />
               <folding />
             </state>
           </provider>
@@ -104,52 +142,9 @@
       <file leaf-file-name="mazeSettings.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/mazeSettings.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="15" lean-forward="false" selection-start-line="0" selection-start-column="15" selection-end-line="0" selection-end-column="15" />
+            <state relative-caret-position="42">
+              <caret line="2" column="17" lean-forward="false" selection-start-line="2" selection-start-column="2" selection-end-line="2" selection-end-column="17" />
               <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Grid.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/containers/Grid.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="193">
-              <caret line="22" column="12" lean-forward="true" selection-start-line="19" selection-start-column="12" selection-end-line="22" selection-end-column="12" />
-              <folding>
-                <element signature="e#0#41#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Cell.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/containers/Cell.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="339">
-              <caret line="99" column="13" lean-forward="true" selection-start-line="99" selection-start-column="13" selection-end-line="99" selection-end-column="13" />
-              <folding>
-                <element signature="e#0#41#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="icon.png" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/assets/icon.png">
-          <provider selected="true" editor-type-id="images">
-            <state />
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="AppDemo.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/AppDemo.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="147">
-              <caret line="8" column="18" lean-forward="false" selection-start-line="8" selection-start-column="18" selection-end-line="8" selection-end-column="18" />
-              <folding>
-                <element signature="e#0#26#0" expanded="true" />
-              </folding>
             </state>
           </provider>
         </entry>
@@ -165,18 +160,41 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>handleToggle</find>
-      <find>setStat</find>
-      <find>createStore</find>
-      <find>export default</find>
-      <find>userPosit</find>
-      <find>st</find>
-      <find>setSTate</find>
-      <find>ADD_Y</find>
-      <find>0.7</find>
+      <find>red</find>
+      <find>'red'</find>
+      <find>styles</find>
       <find>this,</find>
-      <find>this.props.</find>
+      <find>BazeMaze</find>
+      <find>position</find>
+      <find>Exit</find>
+      <find>reset to ma</find>
+      <find>Continue</find>
+      <find>userTurb</find>
+      <find>reset to</find>
+      <find>source</find>
+      <find>collision</find>
+      <find>baseMaze</find>
+      <find>Collision</find>
+      <find>isGameOver</find>
+      <find>wall</find>
+      <find>isGameOverState</find>
+      <find>disabledState</find>
+      <find>restartMazeButton</find>
+      <find>dynamicSpikeTurn</find>
+      <find>DynamicSpike</find>
+      <find>res</find>
+      <find>Armor</find>
+      <find>grasss</find>
+      <find>armor</find>
+      <find>grass</find>
+      <find>user</find>
+      <find>Fire</find>
+      <find>image</find>
     </findStrings>
+    <replaceStrings>
+      <replace>this.props.maze</replace>
+      <replace>this.setState ({ message: &quot;Find the milk.&quot; })</replace>
+    </replaceStrings>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -191,12 +209,15 @@
         <option value="$PROJECT_DIR$/PositionAction.js" />
         <option value="$PROJECT_DIR$/PositionActions.js" />
         <option value="$PROJECT_DIR$/src/containers/DynamicGrid.js" />
-        <option value="$PROJECT_DIR$/mazeSettings.js" />
         <option value="$PROJECT_DIR$/PositionReducer.js" />
-        <option value="$PROJECT_DIR$/src/containers/WASDKeys.js" />
-        <option value="$PROJECT_DIR$/src/containers/Grid.js" />
-        <option value="$PROJECT_DIR$/src/containers/VisionCone.js" />
+        <option value="$PROJECT_DIR$/src/containers/Enemy.js" />
         <option value="$PROJECT_DIR$/App.js" />
+        <option value="$PROJECT_DIR$/MazeReducer.js" />
+        <option value="$PROJECT_DIR$/mazeSettings.js" />
+        <option value="$PROJECT_DIR$/src/containers/WASDKeys.js" />
+        <option value="$PROJECT_DIR$/src/containers/VisionCone.js" />
+        <option value="$PROJECT_DIR$/src/containers/Grid.js" />
+        <option value="$PROJECT_DIR$/src/containers/TrapsTreasure.js" />
       </list>
     </option>
   </component>
@@ -285,8 +306,8 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/src/containers" />
       <recent name="$PROJECT_DIR$/assets" />
+      <recent name="$PROJECT_DIR$/src/containers" />
       <recent name="$PROJECT_DIR$" />
     </key>
   </component>
@@ -316,12 +337,12 @@
       <option name="presentableId" value="Default" />
       <updated>1571387376754</updated>
       <workItem from="1571387379164" duration="22235000" />
-      <workItem from="1571496734743" duration="10661000" />
+      <workItem from="1571496734743" duration="25608000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="32896000" />
+    <option name="totallyTimeSpent" value="47843000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1280" height="738" extended-state="0" />
@@ -390,14 +411,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/assets/splash.png">
       <provider selected="true" editor-type-id="images">
         <state />
@@ -418,49 +431,93 @@
         <state relative-caret-position="147">
           <caret line="8" column="18" lean-forward="false" selection-start-line="8" selection-start-column="18" selection-end-line="8" selection-end-column="18" />
           <folding>
-            <element signature="e#0#26#0" expanded="true" />
+            <element signature="e#0#26#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/mazeSettings.js">
+    <entry file="file://$PROJECT_DIR$/app.json">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="15" lean-forward="false" selection-start-line="0" selection-start-column="15" selection-end-line="0" selection-end-column="15" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/PositionReducer.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="76">
-          <caret line="28" column="10" lean-forward="false" selection-start-line="28" selection-start-column="10" selection-end-line="28" selection-end-column="10" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/containers/WASDKeys.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="136" column="18" lean-forward="false" selection-start-line="136" selection-start-column="18" selection-end-line="136" selection-end-column="18" />
-          <folding>
-            <element signature="e#0#41#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/PositionActions.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="12" lean-forward="false" selection-start-line="0" selection-start-column="12" selection-end-line="0" selection-end-column="12" />
+        <state relative-caret-position="-393">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/containers/Cell.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="339">
+        <state relative-caret-position="606">
           <caret line="99" column="13" lean-forward="true" selection-start-line="99" selection-start-column="13" selection-end-line="99" selection-end-column="13" />
+          <folding>
+            <element signature="e#0#41#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/App.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="181">
+          <caret line="38" column="23" lean-forward="false" selection-start-line="38" selection-start-column="23" selection-end-line="38" selection-end-column="23" />
+          <folding>
+            <element signature="e#0#41#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/babel.config.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/MazeReducer.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="216">
+          <caret line="17" column="35" lean-forward="false" selection-start-line="17" selection-start-column="35" selection-end-line="17" selection-end-column="35" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/containers/WASDKeys.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="114">
+          <caret line="147" column="45" lean-forward="false" selection-start-line="147" selection-start-column="36" selection-end-line="147" selection-end-column="45" />
+          <folding>
+            <element signature="e#0#41#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/MazeActions.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="84">
+          <caret line="4" column="2" lean-forward="true" selection-start-line="4" selection-start-column="2" selection-end-line="4" selection-end-column="2" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mazeSettings.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="42">
+          <caret line="2" column="17" lean-forward="false" selection-start-line="2" selection-start-column="2" selection-end-line="2" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/containers/VisionCone.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="224">
+          <caret line="46" column="29" lean-forward="true" selection-start-line="46" selection-start-column="29" selection-end-line="46" selection-end-column="29" />
           <folding>
             <element signature="e#0#41#0" expanded="true" />
           </folding>
@@ -469,28 +526,18 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/containers/Grid.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="193">
-          <caret line="22" column="12" lean-forward="true" selection-start-line="19" selection-start-column="12" selection-end-line="22" selection-end-column="12" />
+        <state relative-caret-position="248">
+          <caret line="90" column="35" lean-forward="true" selection-start-line="90" selection-start-column="35" selection-end-line="90" selection-end-column="35" />
           <folding>
             <element signature="e#0#41#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/containers/VisionCone.js">
+    <entry file="file://$PROJECT_DIR$/src/containers/TrapsTreasure.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="190">
-          <caret line="36" column="7" lean-forward="true" selection-start-line="36" selection-start-column="7" selection-end-line="36" selection-end-column="7" />
-          <folding>
-            <element signature="e#0#41#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/App.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="295">
-          <caret line="46" column="5" lean-forward="true" selection-start-line="46" selection-start-column="5" selection-end-line="46" selection-end-column="5" />
+        <state relative-caret-position="114">
+          <caret line="33" column="53" lean-forward="false" selection-start-line="33" selection-start-column="53" selection-end-line="33" selection-end-column="53" />
           <folding>
             <element signature="e#0#41#0" expanded="true" />
           </folding>

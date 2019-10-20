@@ -1,57 +1,44 @@
 import React, { Component } from 'react';
 import { StyleSheet, Text, View, SafeAreaView, TouchableOpacity, Image, Dimensions, ToastAndroid, Button } from 'react-native';
 import { connect } from 'react-redux';
-import Cell from './Cell'
 
 class Grid extends Component {
 
   state: {
     message: string,
-    count: number,
-    maze: array
   }
 
   constructor(props: Props) {
     super(props);
+    let mazeCopy = props.maze.BaseMaze.map((x) => x);
     this.state = {
       message: 'ABC',
-      maze: [
-        ["Entrance", "Path", "Path", "Path", "Path","Path", "Path", "Path", "Path", "Path"],
-        ["Path", "Path", "Path", "Path", "Path","Path", "Path", "Path", "Path", "Path"],
-        ["Path", "Path", "Path", "Path", "Path","Path", "Path", "Path", "Path", "Path"],
-        ["Path", "Path", "Path", "Path", "Path","Path", "Path", "Path", "Path", "Path"],
-        ["Path", "Path", "Path", "Path", "Path","Path", "Path", "Path", "Path", "Path"],
-        ["Path", "Path", "Path", "Path", "Path","Path", "Path", "Path", "Path", "Path"],
-        ["Path", "Path", "Path", "Path", "Path","Path", "Path", "Path", "Path", "Path"],
-        ["Path", "Path", "Path", "Path", "Path","Path", "Path", "Path", "Path", "Path"],
-        ["Path", "Path", "Path", "Path", "Path","Path", "Path", "Path", "Path", "Path"],
-        ["Path", "Path", "Path", "Path", "Path","Path", "Path", "Path", "Path", "Exit"],
-      ]
+      maze: mazeCopy.reverse() // visually correct maze because the maze is render max y at the top
     };
   }
 
   renderMazeUI(cell) {
     switch (cell) {
-      case 'Entrance':
+      case 'Wall':
         return <Image
-          style={styles.entrance}
-          source={require('../../assets/right-arrow.png')}
-        />;
+          style={styles.wall}
+          source={require('../../assets/Brick_Wall.png')}
+        />
       case 'Path':
         return <Image
-          style={styles.path}
-          source={require('../../assets/up-arrow.png')}
-        />;
+          style={styles.image}
+          source={require('../../assets/Grass_Block.png')}
+        />
       case 'Exit':
         return <Image
           style={styles.exit}
-          source={require('../../assets/down-arrow.png')}
-        />;
-      default:
+          source={require('../../assets/Milk_Block.png')}
+        />
+      default: // Default are walls
         return <Image
-          style={styles.button}
-          source={require('../../assets/left-arrow.png')}
-        />;
+          style={styles.image}
+          source={require('../../assets/Grass_Block.png')}
+        />
     }
   }
 
@@ -66,6 +53,7 @@ class Grid extends Component {
             )
           )
         }
+
       </SafeAreaView>
     );
   }
@@ -85,14 +73,20 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
     flexWrap: 'wrap'
   },
-  exit: {
-    backgroundColor: 'green', // this is the feedback colour
+  wall: {
     width: Dimensions.get('window').width * 0.1,
     height: Dimensions.get('window').width * 0.1,
     resizeMode: 'contain'
   },
-  path: {
-    backgroundColor: 'yellow', // this is the feedback colour
+  exit: {
+    backgroundColor: 'transparent',
+    width: Dimensions.get('window').width * 0.1,
+    height: Dimensions.get('window').width * 0.1,
+    resizeMode: 'contain'
+  },
+  image: {
+    backgroundColor: 'transparent',
+    opacity: 1,
     width: Dimensions.get('window').width * 0.1,
     height: Dimensions.get('window').width * 0.1,
     resizeMode: 'contain'
@@ -100,14 +94,13 @@ const styles = StyleSheet.create({
   entrance: {
     backgroundColor: 'blue', // this is the feedback colour
     width: Dimensions.get('window').width * 0.1,
-    height: Dimensions.get('window').width * 0.1,
-    resizeMode: 'contain'
+    height: Dimensions.get('window').width * 0.1
   }
 });
 
 const mapStateToProps = (state) => {
-  const { friends, position } = state
-  return { friends, position }
+  const { maze } = state
+  return { maze }
 };
 
 export default connect(mapStateToProps)(Grid);

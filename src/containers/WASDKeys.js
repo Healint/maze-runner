@@ -2,60 +2,88 @@ import React, { Component } from 'react';
 import { StyleSheet, Text, View, SafeAreaView, TouchableOpacity, Image, Dimensions, ToastAndroid, Button } from 'react-native';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import { updateUserPosition } from '../../PositionActions';
+import { updateUserPosition } from '../../MazeActions';
 import MazeSettings from '../../mazeSettings'
 
 class WASD extends Component {
 
   state: {
     message: string,
-    disabledState: boolean
+    disabledState: boolean,
+    isGameOver: boolean
   }
 
   constructor(props: Props) {
     super(props);
     this.state = {
       message: 'Welcome to the Amazing Maze!',
-      disabledState: false
+      disabledState: false,
+      isGameOver: false
     };
   }
 
+
+  // TODO: API fetch call for Maze Calling and enemy calling!
+  generateMaze = () => {
+    this.props.updateUserPosition('RESET_MAZE') // TODO: call something else?
+    this.setState ({ disabledState: false });
+    this.setState ({ message: "New maze has been generated." });
+    this.setState ({ isGameOver: false });
+  };
+
+  checkCollision = (x, y) => {
+      switch (this.props.maze.BaseMaze[y][x]) {
+        case 'Wall':
+          return true
+        default:
+          return false
+      }
+  }
+
   attemptLeft = () => {
-    if (this.props.position.userPositionX === 0) {
+    if (this.props.maze.userPositionX === 0 ) {
       this.setState ({ message: "You hit the wall on your left!" });
+    } else if (this.checkCollision(this.props.maze.userPositionX - 1, this.props.maze.userPositionY)) {
+      this.setState ({ message: "Head-Wall collision detected." });
     } else {
       this.setState ({ disabledState: true });
-      this.setState ({ message: "" }); // TODO: Message should be set to be global universal
+      this.setState ({ message: "Find the milk." }); // TODO: Message should be set to be global universal
       this.props.updateUserPosition('SUB_X')
     }
   };
 
   attemptRight = () => {
-    if (this.props.position.userPositionX === MazeSettings.gridSize - 1) {
+    if (this.props.maze.userPositionX === MazeSettings.gridSize - 1) {
       this.setState ({ message: "You hit the wall on your right!" });
+    } else if (this.checkCollision(this.props.maze.userPositionX + 1, this.props.maze.userPositionY)) {
+      this.setState ({ message: "Head-Wall collision detected." });
     } else {
       this.setState ({ disabledState: true });
-      this.setState ({ message: "" });
+      this.setState ({ message: "Find the milk." });
       this.props.updateUserPosition('ADD_X')
     }
   };
 
   attemptTop = () => {
-    if (this.props.position.userPositionY === MazeSettings.gridSize - 1) {
+    if (this.props.maze.userPositionY === MazeSettings.gridSize - 1) {
       this.setState ({ message: "You hit the wall above!" });
+    } else if (this.checkCollision(this.props.maze.userPositionX, this.props.maze.userPositionY + 1)) {
+      this.setState ({ message: "Head-Wall collision detected." });
     } else {
       this.setState ({ disabledState: true });
-      this.setState ({ message: "" });
+      this.setState ({ message: "Find the milk." });
       this.props.updateUserPosition('ADD_Y')
     }
   };
 
   attemptBottom = () => {
-    if (this.props.position.userPositionY === 0) {
+    if (this.props.maze.userPositionY === 0) {
       this.setState ({ message: "You hit the wall below!" });
+    } else if (this.checkCollision(this.props.maze.userPositionX, this.props.maze.userPositionY - 1)) {
+      this.setState ({ message: "Head-Wall collision detected." });
     } else {
       this.setState ({ disabledState: true });
-      this.setState ({ message: "" });
+      this.setState ({ message: "Find the milk." });
       this.props.updateUserPosition('SUB_Y')
     }
   };
@@ -64,6 +92,13 @@ class WASD extends Component {
     return (
       <SafeAreaView style={styles.container}>
         <Text style={styles.message}>{ this.state.message }</Text>
+        {
+          this.state.isGameOver === true
+            ? (<View style={[{ width: "100%"}]}>
+              <Button style={ styles.resetMaze } title={ "Play Again?"} onPress={this.generateMaze}></Button>
+            </View>)
+            : null
+        }
         <TouchableOpacity
           activeOpacity={ this.state.disabledState ? 1 : 0.5 }
           disabled={ this.state.disabledState }
@@ -100,14 +135,51 @@ class WASD extends Component {
         >
           <Image style={styles.button} source={require('../../assets/right-arrow.png')}/>
         </TouchableOpacity>
-
       </SafeAreaView>
     );
   }
 
   componentDidUpdate(prevProps, prevState, snapshot) {
-    if (prevProps.position.userPositionX !== this.props.position.userPositionX || prevProps.position.userPositionY !== this.props.position.userPositionY) {
-      this.setState ({ disabledState: false });
+    if (prevProps.maze.userPositionX !== this.props.maze.userPositionX || prevProps.maze.userPositionY !== this.props.maze.userPositionY) {
+      // check GameOverState
+      let TT = this.props.maze.TrapsTreasure[this.props.maze.userPositionY][this.props.maze.userPositionX]
+      let BM = this.props.maze.BaseMaze[this.props.maze.userPositionY][this.props.maze.userPositionX]
+
+      if (TT === 'Armor' || TT === 'BonusExit') {
+        if (this.props.maze.turn % MazeSettings.armorTurn === 0) {
+          this.setState ({disabledState: true});
+          this.setState ({message: 'You found the milk!'});
+          this.setState ({isGameOver: true});
+          return
+        }
+      } else if (TT === 'StaticSpike' || BM === 'StaticSpike') { // Cos I dunno which is it
+        this.setState ({disabledState: true});
+        this.setState ({message: 'You became a cat skewer!'});
+        this.setState ({isGameOver: true});
+        return
+      } else if (TT === 'FireBridge') {
+        if (this.props.maze.turn % MazeSettings.fireBridgeTurn === 0) {
+          this.setState ({disabledState: true});
+          this.setState ({message: 'You became a roasted milkless cat!'});
+          this.setState ({isGameOver: true});
+          return
+        }
+      } else if (TT === 'DynamicSpike') {
+        if (this.props.maze.turn % MazeSettings.dynamicSpikeTurn === 0) {
+          this.setState ({disabledState: true});
+          this.setState ({message: 'You ascended to Ghostland without milk!'});
+          this.setState ({isGameOver: true});
+          return
+        }
+      }  else if (BM === 'Exit') {
+        this.setState ({disabledState: true});
+        this.setState ({message: 'You found the milk!'});
+        this.setState ({isGameOver: true});
+        return
+      }
+
+      setTimeout(() => this.setState ({ disabledState: false }), 250)
+
     }
   }
 }
@@ -129,6 +201,11 @@ const styles = StyleSheet.create({
     width: Dimensions.get('window').width * 0.25,
     height: Dimensions.get('window').width * 0.20,
     resizeMode: 'contain'
+  },
+  resetMaze: {
+    alignSelf: 'stretch',
+    width: Dimensions.get('window').width,
+    height: Dimensions.get('window').width * 0.1,
   }
 });
 
@@ -139,8 +216,8 @@ const mapDispatchToProps = dispatch => (
 );
 
 const mapStateToProps = (state) => {
-  const { position } = state
-  return { position }
+  const { maze } = state
+  return { maze }
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(WASD);
