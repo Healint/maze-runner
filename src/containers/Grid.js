@@ -6,11 +6,12 @@ class Grid extends Component {
 
   state: {
     message: string,
+    maze: array
   }
 
   constructor(props: Props) {
     super(props);
-    let mazeCopy = props.maze.BaseMaze.map((x) => x);
+    let mazeCopy = props.BaseMaze.map((x) => x);
     this.state = {
       message: 'ABC',
       maze: mazeCopy.reverse() // visually correct maze because the maze is render max y at the top
@@ -48,12 +49,10 @@ class Grid extends Component {
       <SafeAreaView style={styles.container}>
         {
           this.state.maze.map((row) =>
-            row.map((cell) =>
+              row.map((cell) =>
               this.renderMazeUI(cell)
-            )
-          )
+            ))
         }
-
       </SafeAreaView>
     );
   }

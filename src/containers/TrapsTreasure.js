@@ -12,7 +12,7 @@ class TrapsTreasure extends Component {
 
   constructor(props: Props) {
     super(props);
-    let mazeCopy = props.maze.TrapsTreasure.map((x) => x);
+    let mazeCopy = props.TrapsTreasure.map((x) => x);
     this.state = {
       maze: mazeCopy.reverse() // Visually correct collision
     };
@@ -75,10 +75,6 @@ class TrapsTreasure extends Component {
     }
   }
 
-  drawVisibilityCone() {
-
-  }
-
   render() {
     return (<SafeAreaView style={styles.container}>
         {this.state.maze.map((row) => row.map((cell) => this.renderMazeUI(cell, this.props.maze.turn)))}
@@ -86,8 +82,11 @@ class TrapsTreasure extends Component {
   }
 
   componentDidUpdate(prevProps, prevState, snapshot) {
-    if (prevProps.maze.userPositionX !== this.props.maze.userPositionX || prevProps.maze.userPositionY !== this.props.maze.userPositionY) {
-
+    if (this.props.isFetching === true) {
+      let mazeCopy = this.props.maze.TrapsTreasure.map((x) => x);
+      this.setState = ({
+        maze: mazeCopy.reverse() // Visually correct collision
+      });
     }
   }
 }

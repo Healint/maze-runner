@@ -1,5 +1,6 @@
-export const updateUserPosition = PositionActionType => (
+export const updateUserPosition = (PositionActionType, payload) => (
   {
-    type: PositionActionType
+    type: PositionActionType,
+    payload: payload
   }
 );

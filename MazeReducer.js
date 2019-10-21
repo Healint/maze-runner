@@ -42,6 +42,26 @@ const maze = (state = INITIAL_STATE, action) => {
 
   switch (action.type) {
     // TODO: Reset Maze
+    case 'UPDATE_Y':
+      return Object.assign({}, state, {
+        userPositionY: action.payload
+      })
+
+    case 'UPDATE_X':
+      return Object.assign({}, state, {
+        userPositionX: action.payload
+      })
+
+    case 'UPDATE_MAZE':
+      return Object.assign({}, state, {
+        BaseMaze: action.payload
+      })
+
+    case 'UPDATE_TRAPS':
+      return Object.assign({}, state, {
+        TrapsTreasure: action.payload
+      })
+
     case 'RESET_MAZE':
       // TODO: This should be payload
       return Object.assign({}, state, {
@@ -72,9 +92,6 @@ const maze = (state = INITIAL_STATE, action) => {
           ["Dark", "Armor", "DynamicSpike", "Dark", "Dark", "Dark", "Dark", "Dark", "Dark", "Dark"],
           ["Dark", "StaticSpike", "FireBridge", "Dark", "Dark", "Dark", "Dark", "Dark", "Dark", "Dark"]
         ],
-
-        initVisbilityCone: [],
-
         turn: 0
       })
 

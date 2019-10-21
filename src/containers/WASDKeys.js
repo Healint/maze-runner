@@ -20,12 +20,19 @@ class WASD extends Component {
       disabledState: false,
       isGameOver: false
     };
+
   }
 
+  componentDidMount() {
+    this.props.updateUserPosition('UPDATE_Y', this.props.userPositionY)
+    this.props.updateUserPosition('UPDATE_X', this.props.userPositionX)
+    this.props.updateUserPosition('UPDATE_MAZE', this.props.BaseMaze)
+    this.props.updateUserPosition('UPDATE_TRAPS', this.props.TrapsTreasure)
+  }
 
   // TODO: API fetch call for Maze Calling and enemy calling!
   generateMaze = () => {
-    this.props.updateUserPosition('RESET_MAZE') // TODO: call something else?
+    this.props.updateUserPosition('GENERATE_MAZE') // TODO: call something else?
     this.setState ({ disabledState: false });
     this.setState ({ message: "New maze has been generated." });
     this.setState ({ isGameOver: false });
@@ -95,7 +102,7 @@ class WASD extends Component {
         {
           this.state.isGameOver === true
             ? (<View style={[{ width: "100%"}]}>
-              <Button style={ styles.resetMaze } title={ "Play Again?"} onPress={this.generateMaze}></Button>
+              <Button style={ styles.resetMaze } title={ "Play Again?"} onPress={this.props.updateMaze}></Button>
             </View>)
             : null
         }

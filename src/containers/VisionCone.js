@@ -17,32 +17,82 @@ class VisionCone extends Component {
 
   constructor(props: Props) {
     super(props);
-    this.state = {
-      message: 'ABC',
-      visibleXStart: 0,
-      visibleXEnd: 3,
-      visibleYStart: 0,
-      visibleYEnd: 3,
-      maze: [
-        ["Dark", "Dark", "Dark", "Dark", "Dark","Dark", "Dark", "Dark", "Dark", "Dark"],
-        ["Dark", "Dark", "Dark", "Dark", "Dark","Dark", "Dark", "Dark", "Dark", "Dark"],
-        ["Dark", "Dark", "Dark", "Dark", "Dark","Dark", "Dark", "Dark", "Dark", "Dark"],
-        ["Dark", "Dark", "Dark", "Dark", "Dark","Dark", "Dark", "Dark", "Dark", "Dark"],
-        ["Dark", "Dark", "Dark", "Dark", "Dark","Dark", "Dark", "Dark", "Dark", "Dark"],
-        ["Dark", "Dark", "Dark", "Dark", "Dark","Dark", "Dark", "Dark", "Dark", "Dark"],
-        ["Light", "Light", "Light", "Light", "Dark","Dark", "Dark", "Dark", "Dark", "Dark"],
-        ["Light", "Light", "Light", "Light", "Dark","Dark", "Dark", "Dark", "Dark", "Dark"],
-        ["Light", "Light", "Light", "Light", "Dark","Dark", "Dark", "Dark", "Dark", "Dark"],
-        ["User", "Light", "Light", "Light", "Dark", "Dark", "Dark", "Dark", "Dark", "Dark"]
-      ]
-    };
+    this.state = this.generateVisibilityCone()
+    // this.state = {
+    //   message: 'ABC',
+    //   visibleXStart: 0,
+    //   visibleXEnd: 3,
+    //   visibleYStart: 0,
+    //   visibleYEnd: 3,
+    //   maze: [
+    //     ["Dark", "Dark", "Dark", "Dark", "Dark","Dark", "Dark", "Dark", "Dark", "Dark"],
+    //     ["Dark", "Dark", "Dark", "Dark", "Dark","Dark", "Dark", "Dark", "Dark", "Dark"],
+    //     ["Dark", "Dark", "Dark", "Dark", "Dark","Dark", "Dark", "Dark", "Dark", "Dark"],
+    //     ["Dark", "Dark", "Dark", "Dark", "Dark","Dark", "Dark", "Dark", "Dark", "Dark"],
+    //     ["Dark", "Dark", "Dark", "Dark", "Dark","Dark", "Dark", "Dark", "Dark", "Dark"],
+    //     ["Dark", "Dark", "Dark", "Dark", "Dark","Dark", "Dark", "Dark", "Dark", "Dark"],
+    //     ["Light", "Light", "Light", "Light", "Dark","Dark", "Dark", "Dark", "Dark", "Dark"],
+    //     ["Light", "Light", "Light", "Light", "Dark","Dark", "Dark", "Dark", "Dark", "Dark"],
+    //     ["Light", "Light", "Light", "Light", "Dark","Dark", "Dark", "Dark", "Dark", "Dark"],
+    //     ["User", "Light", "Light", "Light", "Dark", "Dark", "Dark", "Dark", "Dark", "Dark"]
+    //   ]
+    // };
+    // this.generateVisibilityCone()
+
 
     // TODO: Initialisation
   }
 
+  generateVisibilityCone() {
+    let temp = []
+    for (let i = 0; i < MazeSettings.gridSize; i++) {
+      temp.push(["Dark", "Dark", "Dark", "Dark", "Dark", "Dark", "Dark", "Dark", "Dark", "Dark"])
+    }
+
+    // Draws visibility cone
+    let visibleXStart = this.props.maze.userPositionX - MazeSettings.visibleConeSize
+    if (visibleXStart < 0) {
+      visibleXStart = 0
+    }
+
+    let visibleXEnd = this.props.maze.userPositionX + MazeSettings.visibleConeSize
+    if (visibleXEnd > MazeSettings.gridSize - 1) {
+      visibleXEnd = MazeSettings.gridSize - 1
+    }
+
+    let visibleYStart = this.props.maze.userPositionY - MazeSettings.visibleConeSize
+    if (visibleYStart < 0) {
+      visibleYStart = 0
+    }
+
+    let visibleYEnd = this.props.maze.userPositionY + MazeSettings.visibleConeSize
+    if (visibleYEnd >= MazeSettings.gridSize - 1) {
+      visibleYEnd = MazeSettings.gridSize - 1
+    }
+
+    for (let yCounter = visibleYStart; yCounter <= visibleYEnd; yCounter++) {
+      for (let xCounter = visibleXStart; xCounter <= visibleXEnd; xCounter++) {
+        temp[yCounter][xCounter] = "Light"
+      }
+    }
+
+    // Draws the user
+    // x: 9, y: 0
+    temp[this.props.maze.userPositionY][this.props.maze.userPositionX] = "User"
+
+    return {
+      visibleXStart: visibleXStart,
+      visibleXEnd: visibleXEnd,
+      visibleYStart: visibleYStart,
+      visibleYEnd: visibleYEnd,
+      maze: temp.reverse()
+    };
+  };
+
   renderMazeUI(cell) {
     switch (cell) {
       case 'User':
+      case 'Entrance':
         return <Image
           style={styles.user}
           source={require('../../assets/CatCharacter.png')}
@@ -54,10 +104,6 @@ class VisionCone extends Component {
       default:
         return <Text style={styles.dark}></Text>;
     }
-  }
-
-  drawVisibilityCone() {
-
   }
 
   render() {
@@ -77,51 +123,11 @@ class VisionCone extends Component {
   componentDidUpdate(prevProps, prevState, snapshot) {
     if (prevProps.maze.userPositionX !== this.props.maze.userPositionX || prevProps.maze.userPositionY !== this.props.maze.userPositionY) {
 
-      let temp = []
-      for (let i = 0; i < MazeSettings.gridSize; i++) {
-        temp.push(["Dark", "Dark", "Dark", "Dark", "Dark", "Dark", "Dark", "Dark", "Dark", "Dark"])
-      }
-
-      // Draws visibility cone
-      let visibleXStart = this.props.maze.userPositionX - MazeSettings.visibleConeSize
-      if (visibleXStart < 0) {
-        visibleXStart = 0
-      }
-
-      let visibleXEnd = this.props.maze.userPositionX + MazeSettings.visibleConeSize
-      if (visibleXEnd > MazeSettings.gridSize - 1) {
-        visibleXEnd = MazeSettings.gridSize - 1
-      }
-
-      let visibleYStart = this.props.maze.userPositionY - MazeSettings.visibleConeSize
-      if (visibleYStart < 0) {
-        visibleYStart = 0
-      }
-
-      let visibleYEnd = this.props.maze.userPositionY + MazeSettings.visibleConeSize
-      if (visibleYEnd >= MazeSettings.gridSize - 1) {
-        visibleYEnd = MazeSettings.gridSize - 1
-      }
-
-      for (let yCounter = visibleYStart; yCounter <= visibleYEnd; yCounter++) {
-        for (let xCounter = visibleXStart; xCounter <= visibleXEnd; xCounter++) {
-          temp[yCounter][xCounter] = "Light"
-        }
-      }
-
-      // Draws the user
-      // x: 9, y: 0
-      temp[this.props.maze.userPositionY][this.props.maze.userPositionX] = "User"
-
       // Redraws the full map
-      this.setState((state) => {
-        return {
-          visibleXStart: visibleXStart,
-          visibleXEnd: visibleXEnd,
-          visibleYStart: visibleYStart,
-          visibleYEnd: visibleYEnd,
-          maze: temp.reverse()};
-      });
+      this.setState((state) =>
+        this.generateVisibilityCone()
+      );
+
     }
   }
 }
